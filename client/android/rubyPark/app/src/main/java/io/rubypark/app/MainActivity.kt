@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import io.rubypark.app.helper.adjustWindowSizeForNavigationBar
+import io.rubypark.app.helper.getScreen
 import io.rubypark.app.helper.setAutoLayoutContentView
 import io.rubypark.app.helper.setFullScreen
 import module.UtilsBitmap
@@ -43,6 +44,10 @@ class MainActivity : AppCompatActivity() {
         version_text.setTextColor(resources.getColor(R.color.theme01_textColorGray))
         version_text.layoutParams = layout_params
         version_text.gravity = Gravity.CENTER_HORIZONTAL
+
+        // 设置 paddingTop
+        val screen_height = getScreen()[1]
+        layout.setPadding(0, (screen_height / 3).toInt(),0,0)
 
         layout.addView(image_logo)
         layout.addView(text_view)

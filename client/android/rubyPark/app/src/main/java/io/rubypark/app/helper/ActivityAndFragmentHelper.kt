@@ -14,6 +14,7 @@ import io.rubypark.app.R
 import android.view.WindowManager
 import android.app.Activity
 import android.content.Context
+import android.util.DisplayMetrics
 
 
 /**
@@ -138,3 +139,16 @@ fun android.app.Activity.setFullScreen() {
     // Todo Api Level
     window.navigationBarColor = Color.TRANSPARENT
 }
+
+/**
+ * 获取屏幕 -> [宽,高]
+ */
+fun android.app.Activity.getScreen() : Array<Float> {
+    val dm = DisplayMetrics()
+    windowManager.defaultDisplay.getMetrics(dm)
+    val w = dm.widthPixels.toFloat()
+    val h = dm.heightPixels.toFloat()
+    return arrayOf(w,h)
+}
+
+
