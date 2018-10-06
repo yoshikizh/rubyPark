@@ -22,6 +22,11 @@ class MainActivity : AppCompatActivity() {
 
         layout.addView(text_view)
 
+
+
+
+
+
         setContentView(layout)
     }
 
