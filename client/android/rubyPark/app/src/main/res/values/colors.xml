@@ -3,4 +3,19 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- 静谧蓝 [仿 火币配色]-->
+    <color name="theme01.appBackColor">#131f30</color>
+    <color name="theme01.contentBackColor">#333333</color>
+    <color name="theme01.bottomLineColor">#1a273a</color>
+    <color name="theme01.ButtonConfirmationBackColor">#03c087</color>
+    <color name="theme01.ButtonCancelBackColor">#e76d42</color>
+    <color name="theme01.zeroColor">#8c9fad</color>
+    <color name="theme01.textColorHighlight">#5786d2</color>
+    <color name="theme01.textColorGray">#3d526b</color>
+    <color name="theme01.textColorNormal">#6d87a8</color>
+    <color name="theme01.textColorMain">#ffffff</color>
+
+    <!-- Todo 换主题色 -->
+
 </resources>

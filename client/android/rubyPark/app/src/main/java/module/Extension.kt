@@ -85,6 +85,9 @@ inline fun <reified T> JSONArray.last() :T?{
     }
 }
 
+/**
+ * 转 JSONArray to List
+ */
 inline fun <reified T> JSONArray.toList() : List<T>{
     val retv = mutableListOf<T>()
     for (i in 0 until length()){
@@ -93,6 +96,9 @@ inline fun <reified T> JSONArray.toList() : List<T>{
     return retv
 }
 
+/**
+ * 转 List to JSONArray
+ */
 inline fun <reified T>  List<T>.toJsonArray():JSONArray{
     val retv = JSONArray()
     for (v in this){
