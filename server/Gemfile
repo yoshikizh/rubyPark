@@ -1,0 +1,6 @@
+source 'https://gems.ruby-china.org'
+
+gem 'em-websocket', '0.5.1'
+
+gem 'daemons', '1.2.6'     # => ruby daemon process
+gem "subexec", '0.2.6'     # => call external program
