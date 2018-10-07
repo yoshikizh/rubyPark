@@ -141,7 +141,7 @@ fun android.app.Activity.setFullScreen() {
 }
 
 /**
- * 获取屏幕 -> [宽,高]
+ * 获取屏幕 -> [宽,高] px
  */
 fun android.app.Activity.getScreen() : Array<Float> {
     val dm = DisplayMetrics()
