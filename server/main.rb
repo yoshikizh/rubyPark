@@ -25,7 +25,7 @@ module RubyParker
   #------------------------------------------------------------------------
   def self.boardcast msg
     @@connects.each do |conn|
-      conn.ws.send
+      conn.ws.send msg
     end
   end
 
