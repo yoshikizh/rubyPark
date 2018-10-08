@@ -5,21 +5,31 @@ import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
 import android.widget.*
-import io.rubypark.app.helper.adjustWindowSizeForNavigationBar
 import io.rubypark.app.helper.getScreen
+import io.rubypark.app.helper.redirecto
+import io.rubypark.app.helper.render
 import module.UtilsBitmap
 import module.dp
-import module.px2dp
-import module.sp
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var button_start: Button          // => 开始使用按钮
+    lateinit var mLayout: FrameLayout          // => 主容器
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        initializeViews()
+
+        // 渲染界面
+        render(mLayout)
+    }
+
+    // 初始化界面所需 UI 组件
+    private fun initializeViews(){
+
         // 主容器
-        val layout = FrameLayout(this)
+        mLayout = FrameLayout(this)
 
         // 背景图
         val image_background = ImageView(this)
@@ -55,13 +65,16 @@ class MainActivity : AppCompatActivity() {
         val button_layout_params = LinearLayout.LayoutParams(128.dp, 34.dp)
         button_layout_params.gravity = Gravity.CENTER_HORIZONTAL
         button_layout_params.setMargins(0,40.dp,0,0)
-        val button_start = Button(this)
+        button_start = Button(this)
         button_start.text = "立即使用"
         button_start.setTextSize(TypedValue.COMPLEX_UNIT_DIP,11f)
         button_start.gravity = Gravity.CENTER
         button_start.layoutParams = button_layout_params
         button_start.setTextColor(resources.getColor(R.color.theme01_textColorMain))
         button_start.setBackgroundColor(resources.getColor(R.color.theme01_appBackColor))
+        button_start.setOnClickListener{
+            onButtonClick()
+        }
 
         // 底部文字
         val text_slogan_params_layout = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -83,13 +96,14 @@ class MainActivity : AppCompatActivity() {
         layout_body.addView(version_text)
         layout_body.addView(button_start)
 
-        layout.addView(image_background)
-        layout.addView(layout_body)
-        layout.addView(text_slogan)
+        mLayout.addView(image_background)
+        mLayout.addView(layout_body)
+        mLayout.addView(text_slogan)
 
-        setContentView(layout)
+    }
 
-        adjustWindowSizeForNavigationBar()
+    private fun onButtonClick(){
+        redirecto(IndexChatListActivity::class.java,false)
     }
 
 }

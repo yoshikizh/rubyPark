@@ -3,4 +3,7 @@
     <string name="title_name">Ruby Park ++</string>
     <string name="version_name">0.1.0.0</string>
     <string name="app_slogan">Ruby一日,Java一年,珍惜ruby,远离Java!</string>
+    <string name="chatlist_title">聊天列表</string>
+
+
 </resources>

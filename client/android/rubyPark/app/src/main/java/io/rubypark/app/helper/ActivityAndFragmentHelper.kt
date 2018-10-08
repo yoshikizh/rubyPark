@@ -104,18 +104,12 @@ fun android.app.Activity.adjustWindowSizeForNavigationBar(navigationBarColor:Int
             contentView.rootView?.setBackgroundColor(resources.getColor(R.color.theme01_appBackColor))
         }
     }
-
-    setWindowStatusBarColor()
-
-    // Todo Api Level
-    window.navigationBarColor = resources.getColor(R.color.theme01_appBackColor)
-
 }
 
 /**
  * 设置状态栏颜色(透明)
  */
-fun android.app.Activity.setWindowStatusBarColor() {
+fun android.app.Activity.setWindowStatusBarColorTRANSPARENT() {
     try {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window = getWindow()
@@ -151,4 +145,18 @@ fun android.app.Activity.getScreen() : Array<Float> {
     return arrayOf(w,h)
 }
 
+/**
+ * 渲染主界面
+ * @param view - 外层view
+ */
+fun android.app.Activity.render(view: View) {
+    setContentView(view)
 
+    adjustWindowSizeForNavigationBar()
+
+    setWindowStatusBarColorTRANSPARENT()
+
+    // Todo Api Level
+    window.navigationBarColor = resources.getColor(R.color.theme01_appBackColor)
+
+}
