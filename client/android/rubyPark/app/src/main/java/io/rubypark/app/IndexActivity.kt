@@ -2,28 +2,42 @@ package io.rubypark.app
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v4.view.ViewPager
 import android.util.TypedValue
 import android.view.Gravity
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
+import io.rubypark.app.Fragment.ChatsFragment
 import io.rubypark.app.helper.adjustWindowSizeForNavigationBar
 import io.rubypark.app.helper.render
+import io.rubypark.app.helper.setViewPager
 import module.dp
+import org.json.JSONObject
 
-class IndexChatListActivity : AppCompatActivity() {
+class IndexActivity : AppCompatActivity() {
 
     lateinit var mLayout: LinearLayout          // => 主容器
     lateinit var mHeaderLayout: LinearLayout          // => Header 主容器
     lateinit var mBodyLayout:   LinearLayout          // => Body   主容器
     lateinit var mFooterLayout: LinearLayout          // => Footer 主容器
 
+    private val mFragmens: ArrayList<Fragment> = ArrayList()
+    private lateinit var mViewPager: ViewPager
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         initializeViews()
-        render(mLayout)
+
+
+
+        // render(mLayout)
+
+
 
     }
 
@@ -35,6 +49,7 @@ class IndexChatListActivity : AppCompatActivity() {
         initHeaderView()
         initBodyViews()
         initFooterViews()
+
         wrapViews()
 
     }
@@ -64,12 +79,24 @@ class IndexChatListActivity : AppCompatActivity() {
 
     // 初始化 Body views
     private fun initBodyViews(){
-        mBodyLayout = LinearLayout(this)
+        mViewPager = ViewPager(this)
+        initFragments()
+        setViewPager(0,mViewPager,mFragmens)
     }
 
     // 初始化 Foot View
     private fun initFooterViews(){
         mFooterLayout = LinearLayout(this)
+    }
+
+    // 设置 添加 Fragments
+    private fun initFragments(){
+        //  REMARK：marketInfo 参数为 nil，说明为自选市场。
+        mFragmens.add(ChatsFragment())
+        mFragmens.add(ChatsFragment())
+        mFragmens.add(ChatsFragment())
+        mFragmens.add(ChatsFragment())
+
     }
 
 }

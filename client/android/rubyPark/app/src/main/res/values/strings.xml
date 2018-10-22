@@ -5,5 +5,8 @@
     <string name="app_slogan">Ruby一日,Java一年,珍惜ruby,远离Java!</string>
     <string name="chatlist_title">聊天列表</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

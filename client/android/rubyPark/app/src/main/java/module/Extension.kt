@@ -18,6 +18,14 @@ inline fun <reified T> JSONArray.forin(): Iterator<T?>{
 }
 
 /**
+ * 扩展JSONArray，提供 forEach 遍历方法。
+ */
+inline fun <reified T> JSONArray.forEach(action: (T?) -> Unit) {
+    (0 until length()).forEach { action(get(it) as? T) }
+}
+
+
+/**
  * 快速构造JSONArray
  */
 fun jsonArrayfrom(vararg args: Any):JSONArray{

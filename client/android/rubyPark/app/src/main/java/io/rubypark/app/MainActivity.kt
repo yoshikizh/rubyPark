@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onButtonClick(){
-        redirecto(IndexChatListActivity::class.java,false)
+        redirecto(IndexActivity::class.java,false)
     }
 
 }

@@ -14,7 +14,14 @@ import io.rubypark.app.R
 import android.view.WindowManager
 import android.app.Activity
 import android.content.Context
+import android.support.design.widget.TabLayout
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.view.ViewPager
 import android.util.DisplayMetrics
+import android.view.animation.OvershootInterpolator
+import android.widget.Scroller
+import java.lang.reflect.Field
 
 
 /**
@@ -160,3 +167,4 @@ fun android.app.Activity.render(view: View) {
     window.navigationBarColor = resources.getColor(R.color.theme01_appBackColor)
 
 }
+
