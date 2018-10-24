@@ -2,6 +2,7 @@ package module
 
 import android.content.res.Resources
 import android.util.TypedValue
+import android.widget.TextView
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -159,3 +160,4 @@ val Number.px: Number
  */
 val Number.px2dp: Int       // [xxhdpi](360 -> 120)
     get() = (this.toFloat() / metrics.density).toInt()
+

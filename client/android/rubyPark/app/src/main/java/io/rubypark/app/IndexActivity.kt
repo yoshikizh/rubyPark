@@ -14,6 +14,8 @@ import io.rubypark.app.Fragment.ChatsFragment
 import io.rubypark.app.helper.adjustWindowSizeForNavigationBar
 import io.rubypark.app.helper.render
 import io.rubypark.app.helper.setViewPager
+import io.rubypark.app.view.BottomNavigationView
+import module.LINEAR_LAYOUT_PARAMS_MATCH
 import module.dp
 import org.json.JSONObject
 
@@ -35,7 +37,7 @@ class IndexActivity : AppCompatActivity() {
 
 
 
-        // render(mLayout)
+        render(mLayout)
 
 
 
@@ -45,9 +47,11 @@ class IndexActivity : AppCompatActivity() {
     private fun initializeViews(){
         // 主容器
         mLayout = LinearLayout(this)
+        mLayout.orientation = LinearLayout.VERTICAL
+        mLayout.layoutParams = LinearLayout.LayoutParams(LINEAR_LAYOUT_PARAMS_MATCH,LINEAR_LAYOUT_PARAMS_MATCH)
 
         initHeaderView()
-        initBodyViews()
+        //initBodyViews()
         initFooterViews()
 
         wrapViews()
@@ -57,7 +61,7 @@ class IndexActivity : AppCompatActivity() {
     // 包装 Views
     private fun wrapViews(){
         mLayout.addView(mHeaderLayout)
-        mLayout.addView(mBodyLayout)
+        //mLayout.addView(mBodyLayout)
         mLayout.addView(mFooterLayout)
     }
 
@@ -86,7 +90,7 @@ class IndexActivity : AppCompatActivity() {
 
     // 初始化 Foot View
     private fun initFooterViews(){
-        mFooterLayout = LinearLayout(this)
+        mFooterLayout = BottomNavigationView(this).init()
     }
 
     // 设置 添加 Fragments
